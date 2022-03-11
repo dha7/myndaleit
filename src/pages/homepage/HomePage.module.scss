@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+.main {
+  margin-top: 0;
+  max-width: 1000px;
+  margin: auto;
+  /*background-color: #92d3e9;*/
+  height: 100vh;
+} 
+
+.title {
+  font-family: 'Syne Mono', monospace;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 8em;
+}
+h4 {
+  font-size: 2em;
+}

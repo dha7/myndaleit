@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+html {
+  height: 100%;
+  background: rgb(132,181,195);
+  /* background: radial-gradient(circle, rgba(242,95,47,1) 0%, rgba(248,237,214,1) 50%, rgba(132,181,195,1) 100%); */
+  background: linear-gradient(135deg, rgba(132,181,195,1) 0%, rgba(248,237,214,1) 50%, rgba(242,95,47,1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+

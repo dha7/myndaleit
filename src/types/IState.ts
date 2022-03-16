@@ -4,8 +4,10 @@ type TError = {
   reason: string;
 }
 
+export type TItems = IItem[]
+
 export interface IState {
-  items: IItem[] | null
+  items: TItems
   error?: {
     code: number,
     message: string

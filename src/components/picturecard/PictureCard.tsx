@@ -1,16 +1,17 @@
-import React, { ReactNode } from "react";
 import { IItem } from "../../types/IState";
-import { Link } from 'react-router-dom';
 
-const PictureCard = ({ item }: { item: IItem }) => {
-  const handleClick: React.MouseEventHandler<HTMLImageElement> = (e) => {
-    
-    
-  }
-
-  return (<>
+const PictureCard = ({ item, reference }: { item: IItem, reference?: any }) => {
+  
+  if (reference) {
+    return (<>
+    <a ref = {reference} href = {item.image.contextLink} target = "_blank" rel="noreferrer"><img alt = {item.title} key={item.displayLink} src={item.link}></img></a>
+    </>);
+  } else {
+    return (<>
     <a href = {item.image.contextLink} target = "_blank" rel="noreferrer"><img alt = {item.title} key={item.displayLink} src={item.link}></img></a>
     </>);
+  }
+  
 }
 
 export default PictureCard;

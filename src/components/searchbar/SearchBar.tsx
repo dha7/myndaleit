@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 interface ISearchBarProps {
-  handleChange: React.ChangeEventHandler<HTMLInputElement>
+  handleSearch: React.ChangeEventHandler<HTMLInputElement>
   query: string
 }
 
-const SearchBar = ({handleChange, query}: ISearchBarProps) => {
+const SearchBar = ({handleSearch, query}: ISearchBarProps) => {
   const searchInput = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const SearchBar = ({handleChange, query}: ISearchBarProps) => {
         type="text"
         value={query}
         placeholder="Sláðu inn leitarorð"
-        onChange = {handleChange}
+        onChange = {handleSearch}
         autoFocus
         /></>
   );

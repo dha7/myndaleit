@@ -1,14 +1,28 @@
+import React, { FunctionComponent, ReactNode } from 'react'
 import { IItem } from "../../types/IState";
+import s from './PictureCard.module.scss'
 
-const PictureCard = ({ item, reference }: { item: IItem, reference?: any }) => {
+interface IPictureCardProps {
+  item: IItem,
+  reference?: any
+}
+const PictureCard: FunctionComponent<IPictureCardProps> = ({ item, reference }: IPictureCardProps) => {
   
   if (reference) {
     return (<>
-    <a ref = {reference} href = {item.image.contextLink} target = "_blank" rel="noreferrer"><img alt = {item.title} key={item.displayLink} src={item.link}></img></a>
+      <div className={s.card}>
+        <a ref = {reference} href = {item.image.contextLink} target = "_blank" rel="noreferrer">
+          <img alt = {item.title} key={item.displayLink} src={item.link}></img>
+        </a>
+      </div>
     </>);
   } else {
     return (<>
-    <a href = {item.image.contextLink} target = "_blank" rel="noreferrer"><img alt = {item.title} key={item.displayLink} src={item.link}></img></a>
+      <div className={s.card}>
+        <a href = {item.image.contextLink} target = "_blank" rel="noreferrer">
+          <img alt = {item.title} key={item.displayLink} src={item.link}></img>
+        </a>
+      </div>
     </>);
   }
   

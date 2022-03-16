@@ -3,12 +3,15 @@ import axios, { Canceler } from 'axios';
 import { IItem, TItems } from '../types/IState';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-let url = `https://content.googleapis.com/customsearch/v1?cx=001361074102112665899%3Ap7mybnrloug`;
-// let url: string = '../../dataAccepted.json';
+// let url = `https://content.googleapis.com/customsearch/v1?cx=001361074102112665899%3Ap7mybnrloug`;
+let url: string = '../../dataAccepted.json';
 
+
+// Handles the API request
 const useImageSearch = (query: string, pageNumber: number) => {
   const [ loading, setLoading ] = useState<boolean>(false);
   const [ error, setError ] = useState<boolean>(false);
+  const [ errorMessage, setErrorMessage ] = useState<string>("");
   const [ items, setItems] = useState<TItems>([]);
   const [ hasMore, setHasMore] = useState<boolean>(false);
   
@@ -38,7 +41,7 @@ const useImageSearch = (query: string, pageNumber: number) => {
       cancelToken: new axios.CancelToken((c: Canceler) => {cancel = c})
       }).then(res => {
         setItems((prevItems: TItems): TItems => {
-          return [...prevItems, ...res.data.items.map((i:IItem) => i)];
+          return [...prevItems, ...res?.data?.items?.map((i:IItem) => i)];
         })
         setHasMore(res.data.items.length > 0);
         setLoading(false);
@@ -46,15 +49,18 @@ const useImageSearch = (query: string, pageNumber: number) => {
         if (axios.isCancel(e)) {
           return;
         }
+        setLoading(false);
         setError(true);
+        setErrorMessage(e.message);
       })
     } else {
       setLoading(false);
     }
+
     return () => cancel();
   }, [query, pageNumber]);
 
-  return { loading, error, items, hasMore }
+  return { loading, error, errorMessage, items, hasMore }
 }
 
 export default useImageSearch;

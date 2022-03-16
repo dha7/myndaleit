@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import s from './SearchBar.module.scss'
 
 interface ISearchBarProps {
   handleSearch: React.ChangeEventHandler<HTMLInputElement>
@@ -14,14 +15,16 @@ const SearchBar = ({handleSearch, query}: ISearchBarProps) => {
 
   return (
     <>
-    <input key = "search"
+      <input key = "search"
+        className={s.SearchBar}
         ref = {searchInput}
         type="text"
         value={query}
         placeholder="Sláðu inn leitarorð"
         onChange = {handleSearch}
         autoFocus
-        /></>
+        />
+    </>
   );
 }
 

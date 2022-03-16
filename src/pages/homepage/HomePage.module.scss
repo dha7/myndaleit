@@ -1,17 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Syne+Mono&display=swap');
 .main {
+  margin: 0 auto;
   margin-top: 0;
   max-width: 1000px;
-  margin: auto;
-  /*background-color: #92d3e9;*/
   height: 100vh;
 } 
 
 .title {
+  color: rgb(0, 0, 0);
   font-family: 'Lato', sans-serif;
   display: flex;
   justify-content: center;
+  word-wrap: wrap;
   margin-bottom: 0;
+  animation-duration: 0.6s;
+  animation-name: slidein;
+  animation-timing-function: ease-in-out;
+}
+
+.legend {
+  position: absolute;
+  object-fit: stretch;
+  background: url('../../assets/sunset.png') no-repeat center center fixed;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
 h1 {
@@ -19,4 +37,16 @@ h1 {
 }
 h4 {
   font-size: 2em;
+}
+
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+  }
+
+
+  to {
+    margin-left: 0%;
+  }
 }

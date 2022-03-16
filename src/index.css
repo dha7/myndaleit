@@ -5,11 +5,11 @@
 
 html {
   height: 100%;
-  background: rgb(132,181,195);
   /* background: radial-gradient(circle, rgba(242,95,47,1) 0%, rgba(248,237,214,1) 50%, rgba(132,181,195,1) 100%); */
+  
   background: linear-gradient(135deg, rgba(132,181,195,1) 0%, rgba(248,237,214,1) 50%, rgba(242,95,47,1) 100%);
-  background-repeat: no-repeat;
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 body {
@@ -17,7 +17,3 @@ body {
   margin: 0;
 }
 
-@keyframes fade {
-  from {opacity: 1;}
-  to {opacity: 0;}
-}

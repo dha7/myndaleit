@@ -1,0 +1,23 @@
+$spacing: (
+  'sm': 0.5em,
+  'md': 1em,
+  'lg': 1.5em
+);
+
+.grid {
+  display: block;
+
+  @for $i from 1 to 13 {
+    &_cols_#{$i} {
+      flex-basis: $i/12 * 100%
+    }
+  }
+
+  @each $name, $value in $spacing {
+    &_spacing_#{$name} {
+      padding: $value;
+    }
+  }
+
+
+}

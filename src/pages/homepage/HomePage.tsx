@@ -1,14 +1,15 @@
 import React, { useState, useRef, useCallback, ReactNode } from "react";
 import validator from 'validator';
-import  SearchBar  from '../../components/searchbar/SearchBar'
+import SearchBar  from '../../components/searchbar/SearchBar'
 import PictureGrid from '../../components/picturegrid/PictureGrid'
+import Grid from "../../components/grid/Grid";
 import Loading from "../../components/loading/Loading";
 import useImageSearch from "../../utils/useImageSearch"
 import s from './HomePage.module.scss'
 
 
 const HomePage = () => {
-  const [query, setQuery] = useState<string>("forritun");
+  const [query, setQuery] = useState<string>("");
   const [pageNumber, setPageNumber] = useState<number>(1);
   
   const handleSearch : React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -18,8 +19,9 @@ const HomePage = () => {
 
   const { loading, 
           error, 
+          errorMessage,
           items, 
-          hasMore
+          hasMore,
         } = useImageSearch(query, pageNumber);
 
   const observer = useRef<any>();
@@ -35,15 +37,20 @@ const HomePage = () => {
   }, [loading, hasMore]);
 
 
-  // gera main ad grid til ad allt se basically centered...
   return (<>
+    <div className = {s.legend}>
+    </div>
     <main className = {s.main}>
-      <h1 className={`${s.title} ${s.h1}`}>Myndaleit</h1>
+      <Grid cols={3}>
+        <h1 className={`${s.title}`}>Myndaleit</h1>
+      </Grid>
       <PictureGrid items={items} lastPicEl = {lastPictureElementRef}>
-        <SearchBar query = {query} handleSearch = {handleSearch}/>
+        <Grid cols={12} spacing='lg'>
+          <SearchBar query = {query} handleSearch = {handleSearch}/>
+          <>{error&& <>{errorMessage}</>}</>
+        </Grid>
+        <>{loading && <Loading/>}</>
       </PictureGrid>
-      <>{loading && <Loading/>}</>
-      <>{error&& <>{error}</>}</>
     </main>
     
   </>)

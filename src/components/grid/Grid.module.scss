@@ -4,16 +4,53 @@ $spacing: (
   'lg': 1.5em
 );
 
+$breakpoints: (
+  'sm': 640px,
+  'md': 1007px,
+  'lg': 1600px, // þarf liklega ekki
+);
+
+@mixin breakpoints($name) {
+  @media screen and (min-width: map-get($breakpoints, $name)) {
+    @content;
+  }
+}
+
 .grid {
   display: block;
 
   @for $i from 1 to 13 {
-    &_cols_#{$i} {
-      flex-basis: $i/12 * 100%
+    &_xs_#{$i} {
+      flex-basis: $i/12 * 100%;
+    }
+  }
+
+  @include breakpoints('sm') {
+    @for $i from 1 to 13 {
+      &_sm_#{$i} {
+        flex-basis: $i/12 * 100%;
+      }
+    }
+  }
+
+  @include breakpoints('md') {
+    @for $i from 1 to 13 {
+      &_md_#{$i} {
+        flex-basis: $i/12 * 100%;
+      }
+    }
+  }
+
+  @include breakpoints('lg') {
+    @for $i from 1 to 13 {
+      &_lg_#{$i} {
+        flex-basis: $i/12 * 100%;
+      }
     }
   }
 
   @each $name, $value in $spacing {
+    
     &_spacing_#{$name} {
       padding: $value;
     }

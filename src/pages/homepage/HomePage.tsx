@@ -41,11 +41,11 @@ const HomePage = () => {
     <div className = {s.legend}>
     </div>
     <main className = {s.main}>
-      <Grid cols={3}>
+      <Grid xs={4} sm={8}>
         <h1 className={`${s.title}`}>Myndaleit</h1>
       </Grid>
       <PictureGrid items={items} lastPicEl = {lastPictureElementRef}>
-        <Grid cols={12} spacing='lg'>
+        <Grid xs={12} spacing='lg'>
           <SearchBar query = {query} handleSearch = {handleSearch}/>
           <>{error&& <>{errorMessage}</>}</>
         </Grid>

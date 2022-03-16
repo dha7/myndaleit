@@ -15,16 +15,16 @@ const PictureGrid = ({ items, lastPicEl, children }: IPicGridProps) => {
   <div>
     {children}
   </div>
-  <div className={s.Container}>
+  <div className={s.container}>
     {items?.map((item, i) => {
       if (items.length === i + 1) {
         return (
-        <Grid key={i} cols={4} spacing='lg'>
+        <Grid key={i} xs={12} sm={6} md={4} lg={3} spacing='lg'>
           <PictureCard reference = {lastPicEl} item = {item}/>
         </Grid>);
       } else {
         return (
-        <Grid key={i} cols={4} spacing='lg'>
+        <Grid key={i} xs={12} sm={6} md={4} lg={3} spacing='lg'>
           <PictureCard  key={i} item = {item}/>
         </Grid>
         );

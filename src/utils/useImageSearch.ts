@@ -3,18 +3,18 @@ import axios, { Canceler } from 'axios';
 import { IItem, TItems } from '../types/IState';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-// let url = `https://content.googleapis.com/customsearch/v1?cx=001361074102112665899%3Ap7mybnrloug`;
-let url: string = '../../myndaleit/dataAccepted.json';
+let url: string;
 
 
 // Handles the API request
-const useImageSearch = (query: string, pageNumber: number) => {
+const useImageSearch = (query: string, pageNumber: number, dummy: boolean) => {
   const [ loading, setLoading ] = useState<boolean>(false);
   const [ error, setError ] = useState<boolean>(false);
   const [ errorMessage, setErrorMessage ] = useState<string>("");
   const [ items, setItems] = useState<TItems>([]);
   const [ hasMore, setHasMore] = useState<boolean>(false);
   
+  url = dummy ? '../../myndaleit/dataAccepted.json' : `https://content.googleapis.com/customsearch/v1?cx=001361074102112665899%3Ap7mybnrloug`;
 
   // reset items if query changes
   useEffect(() => {
@@ -51,7 +51,13 @@ const useImageSearch = (query: string, pageNumber: number) => {
         }
         setLoading(false);
         setError(true);
-        setErrorMessage(e.message);
+
+        if (e.response.status === 429) {
+          setErrorMessage("The API has closed for business today as it is limited to 100 requests per day. "
+                          + "Come back tomorrow to use the engine again or alternatively go to ./myndaleit/dummy for some dummy data grid action.");
+        } else {
+          setErrorMessage(e.message);
+        }
       })
     } else {
       setLoading(false);

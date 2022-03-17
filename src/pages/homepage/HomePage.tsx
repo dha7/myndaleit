@@ -8,7 +8,7 @@ import useImageSearch from "../../utils/useImageSearch"
 import s from './HomePage.module.scss'
 
 
-const HomePage = () => {
+const HomePage = ({dummy}:{dummy: boolean}) => {
   const [query, setQuery] = useState<string>("");
   const [pageNumber, setPageNumber] = useState<number>(1);
   
@@ -22,7 +22,7 @@ const HomePage = () => {
           errorMessage,
           items, 
           hasMore,
-        } = useImageSearch(query, pageNumber);
+        } = useImageSearch(query, pageNumber, dummy);
 
   const observer = useRef<any>();
   const lastPictureElementRef = useCallback(node => {

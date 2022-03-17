@@ -1,29 +1,32 @@
 import React, { useState, useRef, useCallback } from "react";
 import validator from 'validator';
-import SearchBar  from '../../components/searchbar/SearchBar'
+import SearchBar from '../../components/searchbar/SearchBar'
 import PictureGrid from '../../components/picturegrid/PictureGrid'
-import Grid from "../../components/grid/Grid";
+import GridItem from "../../components/griditem/GridItem";
 import Loading from "../../components/loading/Loading";
-import useImageSearch from "../../utils/useImageSearch"
+import useImageSearch from "../../hooks/useImageSearch"
 import s from './HomePage.module.scss'
 import { NavLink } from "react-router-dom";
 
-
-const HomePage = ({dummy}:{dummy: boolean}) => {
+/**
+ * 
+ * Component is responsible for populating the home page
+ */
+const HomePage = ({ dummy }: { dummy: boolean }) => {
   const [query, setQuery] = useState<string>("");
   const [pageNumber, setPageNumber] = useState<number>(1);
-  
-  const handleSearch : React.ChangeEventHandler<HTMLInputElement> = (e) => {
+
+  const handleSearch: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setQuery(validator.escape(e.currentTarget.value)); // jafnvel hreinsa e-ð meira
     setPageNumber(1);
   }
 
-  const { loading, 
-          error, 
-          errorMessage,
-          items, 
-          hasMore,
-        } = useImageSearch(query, pageNumber, dummy);
+  const { loading,
+    error,
+    errorMessage,
+    items,
+    hasMore,
+  } = useImageSearch(query, pageNumber, dummy);
 
   const observer = useRef<any>();
   const lastPictureElementRef = useCallback(node => {
@@ -39,27 +42,26 @@ const HomePage = ({dummy}:{dummy: boolean}) => {
 
 
   return (<>
-    <div className = {s.legend}>
-    </div>
-    <main className = {s.main}>
-      <Grid xs={4} spacing = "md">
+    <div className={s.legend}></div>
+    <main className={s.main}>
+      <GridItem xs={4} spacing="md">
         <h1 className={`${s.title}`}>Myndaleit</h1>
-      </Grid>
-      <PictureGrid items={items} lastPicEl = {lastPictureElementRef}>
-        <Grid xs={12} spacing='md'>
-          <SearchBar query = {query} handleSearch = {handleSearch}/>
-          <>{error&& 
-          <>
-            <div className={s.error}>{errorMessage}</div>
-            <NavLink onClick={()=> {setQuery("")}} className={s.error} to="/myndaleit/dummy">Click here to cut out the middle man</NavLink>
-          </>}
+      </GridItem>
+      <PictureGrid items={items} lastPicEl={lastPictureElementRef}>
+        <GridItem xs={12} spacing='md'>
+          <SearchBar query={query} handleSearch={handleSearch} />
+          <>{error &&
+            <>
+              <div className={s.error}>{errorMessage}</div>
+              <NavLink onClick={() => { setQuery("") }} className={s.error} to="/myndaleit/dummy">Click here to cut out the middle man</NavLink>
+            </>}
           </>
 
-        </Grid>
-        <>{loading && <Loading/>}</>
+        </GridItem>
+        <>{loading && <Loading />}</>
       </PictureGrid>
     </main>
-    
+
   </>)
 }
 

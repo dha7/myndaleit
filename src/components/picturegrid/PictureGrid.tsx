@@ -1,38 +1,42 @@
-import  { ReactNode } from "react";
+import { ReactNode } from "react";
 import { TItems } from '../../types/IState'
 import PictureCard from "../picturecard/PictureCard";
-import Grid from "../grid/Grid"
+import GridItem from "../griditem/GridItem"
 import s from './PictureGrid.module.scss'
 
 interface IPicGridProps {
-   items: TItems,
-   lastPicEl:  (...args: any[]) => any
-   children: ReactNode 
+  items: TItems,
+  lastPicEl: (...args: any[]) => any
+  children: ReactNode
 }
-const PictureGrid = ({ items, lastPicEl, children }: IPicGridProps) => {
 
+/**
+ * 
+ * Populates the grid of pictures
+ */
+const PictureGrid = ({ items, lastPicEl, children }: IPicGridProps) => {
   return (<>
-  <div>
-    {children}
-  </div>
-  <div className={s.container}>
-    {items?.map((item, i) => {
-      if (items.length === i + 1) {
-        return (
-        <Grid key={i} xs={12} sm={6} md={4} lg={3} spacing='md'>
-          <PictureCard reference = {lastPicEl} item = {item}/>
-        </Grid>);
-      } else {
-        return (
-        <Grid key={i} xs={12} sm={6} md={4} lg={3} spacing='md'>
-          <PictureCard  key={i} item = {item}/>
-        </Grid>
-        );
+    <div>
+      {children}
+    </div>
+    <div className={s.container}>
+      {items?.map((item, i) => {
+        if (items.length === i + 1) {
+          return (
+            <GridItem key={i} xs={12} sm={6} md={4} lg={3} spacing='md'>
+              <PictureCard reference={lastPicEl} item={item} />
+            </GridItem>);
+        } else {
+          return (
+            <GridItem key={i} xs={12} sm={6} md={4} lg={3} spacing='md'>
+              <PictureCard key={i} item={item} />
+            </GridItem>
+          );
+        }
+      })
       }
-    })
-    }
-  </div>
-    </>);
+    </div>
+  </>);
 }
 
 export default PictureGrid;

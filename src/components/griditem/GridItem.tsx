@@ -1,17 +1,22 @@
 import React, { FunctionComponent, ReactNode } from "react";
-import s from "./Grid.module.scss";
+import s from "./GridItem.module.scss";
 import cn from "classnames";
 
 type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type Spacing = 'sm' | 'md' | 'lg';
-const Grid: FunctionComponent<{
+
+/**
+ * 
+ * Responsible for assigning width and spacing to flex grid items
+ */
+const GridItem: FunctionComponent<{
   children: ReactNode
   xs?: Cols
   sm?: Cols
   md?: Cols
   lg?: Cols
   spacing?: Spacing
-}> = ({xs, sm, md, lg, spacing, children}) => {
+}> = ({ xs, sm, md, lg, spacing, children }) => {
 
   const classNames = cn({
     [s[`grid_xs_${xs}`]]: xs,
@@ -22,10 +27,10 @@ const Grid: FunctionComponent<{
     [s[`grid_lg_${lg}`]]: lg,
     [s[`grid_spacing_${spacing}`]]: spacing
   })
-  
-  return <div className = {classNames}>
+
+  return <div className={classNames}>
     {children}
   </div>;
 }
 
-export default Grid;
+export default GridItem;

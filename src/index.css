@@ -5,8 +5,6 @@
 
 html {
   height: 100%;
-  /* background: radial-gradient(circle, rgba(242,95,47,1) 0%, rgba(248,237,214,1) 50%, rgba(132,181,195,1) 100%); */
-  
   background: linear-gradient(135deg, rgba(132,181,195,1) 0%, rgba(248,237,214,1) 50%, rgba(242,95,47,1) 100%);
   background-attachment: fixed;
   background-repeat: no-repeat;

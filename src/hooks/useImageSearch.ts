@@ -5,15 +5,18 @@ import { IItem, TItems } from '../types/IState';
 const API_KEY = process.env.REACT_APP_API_KEY;
 let url: string;
 
-
-// Handles the API request
+/**
+ *  Handles requests to the API
+ *
+ *  */
 const useImageSearch = (query: string, pageNumber: number, dummy: boolean) => {
-  const [ loading, setLoading ] = useState<boolean>(false);
-  const [ error, setError ] = useState<boolean>(false);
-  const [ errorMessage, setErrorMessage ] = useState<string>("");
-  const [ items, setItems] = useState<TItems>([]);
-  const [ hasMore, setHasMore] = useState<boolean>(false);
-  
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [items, setItems] = useState<TItems>([]);
+  const [hasMore, setHasMore] = useState<boolean>(false);
+
+  // load dummy data or call the api?
   url = dummy ? '../../myndaleit/dataAccepted.json' : `https://content.googleapis.com/customsearch/v1?cx=001361074102112665899%3Ap7mybnrloug`;
 
   // reset items if query changes
@@ -25,23 +28,23 @@ const useImageSearch = (query: string, pageNumber: number, dummy: boolean) => {
   // Current request is cancelled in the event of another request
   useEffect(() => {
     setError(false);
-    let cancel: Canceler = () => {}
-    let startIndex: number = (pageNumber-1)*10 + 1;
+    let cancel: Canceler = () => { }
+    let startIndex: number = (pageNumber - 1) * 10 + 1;
     if (query) {
       setLoading(true);
       axios({
-      method: 'GET',
-      url: url,
-      params: { 
-        q: query,
-        start: startIndex, 
-        searchType: 'image',
-        key: API_KEY 
-      },
-      cancelToken: new axios.CancelToken((c: Canceler) => {cancel = c})
+        method: 'GET',
+        url: url,
+        params: {
+          q: query,
+          start: startIndex,
+          searchType: 'image',
+          key: API_KEY
+        },
+        cancelToken: new axios.CancelToken((c: Canceler) => { cancel = c })
       }).then(res => {
         setItems((prevItems: TItems): TItems => {
-          return [...prevItems, ...res?.data?.items?.map((i:IItem) => i)];
+          return [...prevItems, ...res?.data?.items?.map((i: IItem) => i)];
         })
         setHasMore(res.data.items.length > 0);
         setLoading(false);
@@ -53,7 +56,7 @@ const useImageSearch = (query: string, pageNumber: number, dummy: boolean) => {
         setError(true);
 
         if (e.response.status === 429) {
-          setErrorMessage("The API has closed for business today as it is limited to 100 requests per day. ")
+          setErrorMessage("The API has closed for business today as for now it is limited to 100 requests per day. ")
         } else {
           setErrorMessage(e.message);
         }

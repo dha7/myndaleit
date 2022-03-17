@@ -47,7 +47,7 @@ const HomePage = () => {
       <PictureGrid items={items} lastPicEl = {lastPictureElementRef}>
         <Grid xs={12} spacing='md'>
           <SearchBar query = {query} handleSearch = {handleSearch}/>
-          <>{error&& <>{errorMessage}</>}</>
+          <>{error&& <div className={s.error}>{errorMessage}</div>}</>
         </Grid>
         <>{loading && <Loading/>}</>
       </PictureGrid>

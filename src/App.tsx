@@ -10,14 +10,17 @@ const juggleFavs = () => {
   let i = 0;
   setInterval(() => {
     if (document) {
-      (document.getElementById("icon") as HTMLLinkElement).href = `/favicon-${((i++%4)+1)}.png`;
+      try {
+        (document.getElementById("icon") as HTMLLinkElement).href = `myndaleit/favicon-${((i++%4)+1)}.png`;
+      } catch(e) {
+
+      }
     }
     if (i > 100000) {
       i = 0;
     }
   }, 1000);
 }
-
 
 const App = () => {
   useEffect(()  => { juggleFavs() }, []);

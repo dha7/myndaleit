@@ -4,7 +4,7 @@ import { IItem, TItems } from '../types/IState';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 // let url = `https://content.googleapis.com/customsearch/v1?cx=001361074102112665899%3Ap7mybnrloug`;
-let url: string = '../../dataAccepted.json';
+let url: string = '../../myndaleit/dataAccepted.json';
 
 
 // Handles the API request

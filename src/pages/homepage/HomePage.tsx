@@ -6,6 +6,7 @@ import Grid from "../../components/grid/Grid";
 import Loading from "../../components/loading/Loading";
 import useImageSearch from "../../utils/useImageSearch"
 import s from './HomePage.module.scss'
+import { NavLink } from "react-router-dom";
 
 
 const HomePage = ({dummy}:{dummy: boolean}) => {
@@ -47,7 +48,13 @@ const HomePage = ({dummy}:{dummy: boolean}) => {
       <PictureGrid items={items} lastPicEl = {lastPictureElementRef}>
         <Grid xs={12} spacing='md'>
           <SearchBar query = {query} handleSearch = {handleSearch}/>
-          <>{error&& <div className={s.error}>{errorMessage}</div>}</>
+          <>{error&& 
+          <>
+            <div className={s.error}>{errorMessage}</div>
+            <NavLink onClick={()=> {setQuery("")}} className={s.error} to="/myndaleit/dummy">Click here to cut out the middle man</NavLink>
+          </>}
+          </>
+
         </Grid>
         <>{loading && <Loading/>}</>
       </PictureGrid>

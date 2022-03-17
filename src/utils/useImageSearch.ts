@@ -53,8 +53,7 @@ const useImageSearch = (query: string, pageNumber: number, dummy: boolean) => {
         setError(true);
 
         if (e.response.status === 429) {
-          setErrorMessage("The API has closed for business today as it is limited to 100 requests per day. "
-                          + "Come back tomorrow to use the engine again or alternatively go to ./myndaleit/dummy for some dummy data grid action.");
+          setErrorMessage("The API has closed for business today as it is limited to 100 requests per day. ")
         } else {
           setErrorMessage(e.message);
         }

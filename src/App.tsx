@@ -27,6 +27,8 @@ const App = () => {
   
   return (
     <Routes>
+      <Route path="/" element={<HomePage dummy={false}/>}/>
+      <Route path="/dummy" element={<HomePage dummy={true}/>}/>
       <Route path="/myndaleit" element={<HomePage dummy={false}/>}/>
       <Route path="/myndaleit/dummy" element={<HomePage dummy={true}/>}/>
       <Route path="*"element={<NotFound/>}/>

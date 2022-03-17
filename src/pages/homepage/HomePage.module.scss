@@ -4,6 +4,12 @@
   margin: 0 auto;
   margin-top: 0;
   max-width: 1000px;
+  @media screen and (min-width: 1600px) {
+    max-width: 1400px;
+  }
+  @media screen and (min-width: 2500px) {
+    max-width: 2400px;
+  }
   height: 100vh;
 } 
 

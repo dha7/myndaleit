@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, ReactNode } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import validator from 'validator';
 import SearchBar  from '../../components/searchbar/SearchBar'
 import PictureGrid from '../../components/picturegrid/PictureGrid'
@@ -41,11 +41,11 @@ const HomePage = () => {
     <div className = {s.legend}>
     </div>
     <main className = {s.main}>
-      <Grid xs={4} sm={8}>
+      <Grid xs={4} sm={8} spacing = "md">
         <h1 className={`${s.title}`}>Myndaleit</h1>
       </Grid>
       <PictureGrid items={items} lastPicEl = {lastPictureElementRef}>
-        <Grid xs={12} spacing='lg'>
+        <Grid xs={12} spacing='md'>
           <SearchBar query = {query} handleSearch = {handleSearch}/>
           <>{error&& <>{errorMessage}</>}</>
         </Grid>

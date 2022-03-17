@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
   return (<div>
-    <h1 className="title">404 - Fannst ekki!</h1>
+    <h1>404 - Fannst ekki!</h1>
     <Link to="/">Fara heim</Link>
   </div>
   );

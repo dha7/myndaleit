@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef } from "react";
 import s from './SearchBar.module.scss'
 
 interface ISearchBarProps {
@@ -16,7 +16,7 @@ const SearchBar = ({handleSearch, query}: ISearchBarProps) => {
   return (
     <>
       <input key = "search"
-        className={s.SearchBar}
+        className={s.searchBar}
         ref = {searchInput}
         type="text"
         value={query}

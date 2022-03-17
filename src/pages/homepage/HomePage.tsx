@@ -41,7 +41,7 @@ const HomePage = () => {
     <div className = {s.legend}>
     </div>
     <main className = {s.main}>
-      <Grid xs={4} sm={8} spacing = "md">
+      <Grid xs={4} spacing = "md">
         <h1 className={`${s.title}`}>Myndaleit</h1>
       </Grid>
       <PictureGrid items={items} lastPicEl = {lastPictureElementRef}>

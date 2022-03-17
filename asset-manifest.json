@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/myndaleit/static/css/main.86b14554.chunk.css",
-    "main.js": "/myndaleit/static/js/main.ac6c9dff.chunk.js",
-    "main.js.map": "/myndaleit/static/js/main.ac6c9dff.chunk.js.map",
+    "main.js": "/myndaleit/static/js/main.fc87e4ec.chunk.js",
+    "main.js.map": "/myndaleit/static/js/main.fc87e4ec.chunk.js.map",
     "runtime-main.js": "/myndaleit/static/js/runtime-main.ed77e95e.js",
     "runtime-main.js.map": "/myndaleit/static/js/runtime-main.ed77e95e.js.map",
     "static/js/2.14f3d04b.chunk.js": "/myndaleit/static/js/2.14f3d04b.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.ed77e95e.js",
     "static/js/2.14f3d04b.chunk.js",
     "static/css/main.86b14554.chunk.css",
-    "static/js/main.ac6c9dff.chunk.js"
+    "static/js/main.fc87e4ec.chunk.js"
   ]
 }

@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/myndaleit/static/css/main.86b14554.chunk.css",
-    "main.js": "/myndaleit/static/js/main.e05ce4eb.chunk.js",
-    "main.js.map": "/myndaleit/static/js/main.e05ce4eb.chunk.js.map",
+    "main.css": "/myndaleit/static/css/main.6f20aedc.chunk.css",
+    "main.js": "/myndaleit/static/js/main.af577953.chunk.js",
+    "main.js.map": "/myndaleit/static/js/main.af577953.chunk.js.map",
     "runtime-main.js": "/myndaleit/static/js/runtime-main.ed77e95e.js",
     "runtime-main.js.map": "/myndaleit/static/js/runtime-main.ed77e95e.js.map",
-    "static/js/2.14f3d04b.chunk.js": "/myndaleit/static/js/2.14f3d04b.chunk.js",
-    "static/js/2.14f3d04b.chunk.js.map": "/myndaleit/static/js/2.14f3d04b.chunk.js.map",
+    "static/js/2.2ce49d15.chunk.js": "/myndaleit/static/js/2.2ce49d15.chunk.js",
+    "static/js/2.2ce49d15.chunk.js.map": "/myndaleit/static/js/2.2ce49d15.chunk.js.map",
     "index.html": "/myndaleit/index.html",
-    "static/css/main.86b14554.chunk.css.map": "/myndaleit/static/css/main.86b14554.chunk.css.map",
-    "static/js/2.14f3d04b.chunk.js.LICENSE.txt": "/myndaleit/static/js/2.14f3d04b.chunk.js.LICENSE.txt",
+    "static/css/main.6f20aedc.chunk.css.map": "/myndaleit/static/css/main.6f20aedc.chunk.css.map",
+    "static/js/2.2ce49d15.chunk.js.LICENSE.txt": "/myndaleit/static/js/2.2ce49d15.chunk.js.LICENSE.txt",
     "static/media/HomePage.module.scss": "/myndaleit/static/media/sunset.faac74f2.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ed77e95e.js",
-    "static/js/2.14f3d04b.chunk.js",
-    "static/css/main.86b14554.chunk.css",
-    "static/js/main.e05ce4eb.chunk.js"
+    "static/js/2.2ce49d15.chunk.js",
+    "static/css/main.6f20aedc.chunk.css",
+    "static/js/main.af577953.chunk.js"
   ]
 }

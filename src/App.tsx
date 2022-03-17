@@ -11,7 +11,7 @@ const juggleFavs = () => {
   setInterval(() => {
     if (document) {
       try {
-        (document.getElementById("icon") as HTMLLinkElement).href = `myndaleit/favicon-${((i++%4)+1)}.png`;
+        (document.getElementById("icon") as HTMLLinkElement).href = `./favicon-${((i++%4)+1)}.png`;
       } catch(e) {
 
       }

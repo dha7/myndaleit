@@ -6,11 +6,6 @@ Vefsíðan er skalanleg og boðleg allt frá 200px upp í hátt í 4000px (yfird
 
 Að keyra `npm install` og svo `npm start` mun keyra síðuna locally.
 
- 
-Link á hosted síðu: <https://dha7.github.io/myndaleit/>
-
-
-
 # Create React App Readme below
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
